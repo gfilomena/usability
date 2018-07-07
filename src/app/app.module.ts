@@ -10,13 +10,12 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatSelectModule,
-  MatSortModule,
-  MatBadgeModule,
   MatButtonModule,
   MatProgressBarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DistinctPipe } from './pipe/distinct.pipe';
+import { ScrollingModule } from '@angular/cdk-experimental/scrolling';
 
 @NgModule({
   declarations: [
@@ -25,14 +24,13 @@ import { DistinctPipe } from './pipe/distinct.pipe';
   ],
   imports: [
     BrowserModule,
+    ScrollingModule,
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
     MatToolbarModule,
-    MatSortModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatBadgeModule,
     MatButtonModule,
     HttpClientModule,
     FormsModule,

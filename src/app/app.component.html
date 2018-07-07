@@ -2,7 +2,8 @@
   <span>1. Usability: Data Table</span>
 </mat-toolbar>
 <mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
-<mat-form-field class="example-full-width">
+<div>
+<mat-form-field>
     <input matInput id="searchText" placeholder="Search" (keydown)="onKeydown($event)"   [(ngModel)]="searchText" value="">
   </mat-form-field>
 <mat-form-field>
@@ -77,8 +78,9 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<button mat-raised-button color="primary" (click)="resetfilter()">Reset</button>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<button mat-button color="primary" (click)="resetfilter()">Reset</button>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="seqNo" matSortDirection="asc" matSortDisableClear>
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -141,3 +143,6 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+
+<mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)">
+</mat-paginator>
