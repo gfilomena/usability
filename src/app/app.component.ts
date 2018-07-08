@@ -67,9 +67,9 @@ export class AppComponent implements OnInit {
   }
 
   onPageChanged(e) {
-     console.log('e:', e);
-    let firstCut = e.pageIndex * e.pageSize;
-    let secondCut = firstCut + e.pageSize;
+    console.log('e:', e);
+    const firstCut = e.pageIndex * e.pageSize;
+    const secondCut = firstCut + e.pageSize;
     const tmp = this.filters();
     this.dataSource = tmp.slice(firstCut, secondCut);
   }
@@ -78,7 +78,6 @@ export class AppComponent implements OnInit {
     const tmp = this.filters();
     this.length = tmp.length;
     this.dataSource = tmp.slice(0, this.pageSize);
-    // console.log('tmp', tmp);
   }
 
   filters() {
@@ -97,8 +96,6 @@ export class AppComponent implements OnInit {
             String(item.sourceyear).includes(this.searchText) || String(item.value).includes(this.searchText) ||
             String(item.valuefootnotes).includes(this.searchText)
           ) {
-            // console.log(' this.searchText', this.searchText);
-            // console.log(' String(item.year)',  String(item.year));
             return item;
           }
         }
@@ -177,7 +174,6 @@ export class AppComponent implements OnInit {
         }
       })
       .filter(item => {
-        // console.log('this.filter', this.filter);
         if (this.filter.valuefootnotes === '-1') {
           return item;
         } else {

@@ -3,100 +3,103 @@
 </mat-toolbar>
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <div>
-    <mat-card class="example-card">
-        <mat-card-header>
-         <mat-card-title> <h2> Filters:</h2></mat-card-title>
-        </mat-card-header>
-      
-        <mat-card-content>
-            <div>
-              <mat-form-field class="filter">
-                  <input matInput id="searchText" placeholder="Search" (keydown)="onKeydown($event)"   [(ngModel)]="searchText" value="">
-                </mat-form-field>
-              <mat-form-field class="filter">
-              <mat-select  placeholder="Country or Area" id="country" [(ngModel)]="filter.country" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'country'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Year" id="year" [(ngModel)]="filter.year" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'year'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Area" id="area" [(ngModel)]="filter.area" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'area'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Sex" id="sex" [(ngModel)]="filter.sex" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'sex'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            </div>
-            <div>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Record Type" id="recordtype" [(ngModel)]="filter.recordtype" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'recordtype'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Reliability" id="reliability" [(ngModel)]="filter.reliability" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'reliability'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Source Year" id="sourceyear" [(ngModel)]="filter.sourceyear" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'sourceyear'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Value" id="value" [(ngModel)]="filter.value" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'value'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="filter">
-              <mat-select placeholder="Value Footnotes" id="valuefootnotes" [(ngModel)]="filter.valuefootnotes" (selectionChange)="changecountry()">
-                <mat-option value='-1'>None</mat-option>
-                <mat-option *ngFor="let item of origin | distinct: 'valuefootnotes'" [value]="item">
-                  {{item}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            </div>
-        </mat-card-content>
-        <mat-card-actions> 
-            <button mat-raised-button color="primary" (click)="resetfilter()">Reset</button>
-        </mat-card-actions>
-      </mat-card>
-
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2> Filters:</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field class="filter">
+          <input matInput id="searchText" placeholder="Search" (keydown)="onKeydown($event)" [(ngModel)]="searchText" value="">
+          <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Country or Area" id="country" [(ngModel)]="filter.country" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'country'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Year" id="year" [(ngModel)]="filter.year" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'year'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Area" id="area" [(ngModel)]="filter.area" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'area'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Sex" id="sex" [(ngModel)]="filter.sex" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'sex'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Record Type" id="recordtype" [(ngModel)]="filter.recordtype" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'recordtype'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Reliability" id="reliability" [(ngModel)]="filter.reliability" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'reliability'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Source Year" id="sourceyear" [(ngModel)]="filter.sourceyear" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'sourceyear'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Value" id="value" [(ngModel)]="filter.value" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'value'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="filter">
+          <mat-select placeholder="Value Footnotes" id="valuefootnotes" [(ngModel)]="filter.valuefootnotes" (selectionChange)="changecountry()">
+            <mat-option value='-1'>None</mat-option>
+            <mat-option *ngFor="let item of origin | distinct: 'valuefootnotes'" [value]="item">
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="resetfilter()">Reset</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="seqNo" matSortDirection="asc" matSortDisableClear>
-
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="seqNo" matSortDirection="asc"
+  matSortDisableClear>
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
