@@ -11,6 +11,7 @@ import {
   MatToolbarModule,
   MatSelectModule,
   MatButtonModule,
+  MatCardModule,
   MatProgressBarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -32,6 +33,7 @@ import { ScrollingModule } from '@angular/cdk-experimental/scrolling';
     MatSelectModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatCardModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule
