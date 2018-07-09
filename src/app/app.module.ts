@@ -17,7 +17,7 @@ import {
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DistinctPipe } from './pipe/distinct.pipe';
-import { ScrollingModule } from '@angular/cdk-experimental/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { ScrollingModule } from '@angular/cdk-experimental/scrolling';
   ],
   imports: [
     BrowserModule,
-    ScrollingModule,
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
